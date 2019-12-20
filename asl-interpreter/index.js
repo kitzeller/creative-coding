@@ -33,7 +33,7 @@ async function app() {
 
     // Add buttons
     for (let i = 0; i < 26; i++) {
-        $("#buttons").append("<button id='class-" + (i + 10).toString(36) + "'>" + (i + 10).toString(36).toUpperCase() + "</button>");
+        await $("#buttons").append("<button id='class-" + (i + 10).toString(36) + "'>" + (i + 10).toString(36).toUpperCase() + "</button>");
         document.getElementById('class-' + (i + 10).toString(36)).addEventListener('click', () => addExample(i));
     }
 
