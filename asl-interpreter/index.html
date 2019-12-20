@@ -1,18 +1,83 @@
 <html>
 <head>
-    <!-- Load the latest version of TensorFlow.js -->
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #4BD5E8 0%, #4BD5E8 55%, white 55%, white 100%);
+        }
+
+        h1 {
+            color: white;
+            font-size: 64px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+
+        video {
+            border: 5px solid white;
+            border-radius: 25px;
+        }
+
+        #buttons {
+            width: 1400px;
+            margin: 10px;
+        }
+
+        button {
+            display: inline-block;
+            text-decoration: none;
+            background: #4BD5E8;
+            color: #FFF;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            text-align: center;
+            vertical-align: middle;
+            overflow: hidden;
+            box-shadow: 0px 0px 0px 5px #4BD5E8;
+            border: dashed 1px #FFF;
+            transition: .4s;
+            margin: 6px;
+            font-size: 18px;
+        }
+
+        button:hover {
+            background: #b3e0e8;
+            box-shadow: 0px 0px 0px 5px #4BD5E8;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://unpkg.com/@tensorflow/tfjs"></script>
     <script src="https://unpkg.com/@tensorflow-models/mobilenet"></script>
     <script src="https://unpkg.com/@tensorflow-models/knn-classifier"></script>
 </head>
 <body>
-<div id="console"></div>
-<!-- Add an image that we will use to test -->
-<video autoplay playsinline muted id="webcam" width="224" height="224"></video>
-<button id="class-a">Add A</button>
-<button id="class-b">Add B</button>
-<button id="class-c">Add C</button>
-<!-- Load index.js after the content of the page -->
+
+<div class="container">
+    <div>
+        <h1>ASL Interpreter</h1>
+        <div style="display: flex; flex-direction: row; justify-content: space-around">
+            <video autoplay playsinline muted id="webcam" width="224" height="224"
+                   style="width: 500px; height: 500px"></video>
+            <div id="console" style="width: 500px; border-radius: 25px; background-color: white; font-size: 94px"></div>
+        </div>
+
+        <div id="buttons"></div>
+    </div>
+</div>
+
+
 <script src="index.js"></script>
 </body>
 </html>
