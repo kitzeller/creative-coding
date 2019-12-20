@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Midi</title>
+</head>
+<body>
+
+<h1> Data Sonification </h1>
+
+<input type="text" value="10" class="search" onkeydown="search(this)"/>
+
+
+
+<h2>Sequence</h2>
+
+<textarea>
+insert...
+</textarea>
+
+<button>Run</button>
+
+<script src="https://cdn.jsdelivr.net/npm/webmidi"></script>
+<script>
+    WebMidi.enable(function(err) {
+        if (err) throw err;
+        console.log("WebMidi enabled!");
+    });
+
+    function search(ele) {
+        if(event.keyCode == 13) {
+            var output = WebMidi.getOutputByName("IAC Driver Bus 1");
+            console.log(ele.value)
+            output.playNote(parseInt(ele.value));
+        }
+    }
+
+    function run(){
+        // TODO: Parse sequence, get timing intervals, etc...
+    }
+</script>
+</body>
+</html>

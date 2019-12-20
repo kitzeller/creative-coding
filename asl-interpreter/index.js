@@ -1,9 +1,20 @@
+/**
+ * ASL Interpreter
+ * @author Kit Zellerbach
+ *
+ * TODO
+ * - Initial tutorial
+ * - Preload model
+ * - Custom words
+ * - Higher accuracy
+ */
+
 const webcamElement = document.getElementById('webcam');
 const classifier = knnClassifier.create();
 let net;
 
 async function app() {
-    console.log('Loading mobilenet..');
+    console.log('Loading MobileNet...');
 
     // Load the model.
     net = await mobilenet.load();
@@ -33,7 +44,7 @@ async function app() {
 
     // Add buttons
     for (let i = 0; i < 26; i++) {
-        await $("#buttons").append("<button id='class-" + (i + 10).toString(36) + "'>" + (i + 10).toString(36).toUpperCase() + "</button>");
+        $("#buttons").append("<button id='class-" + (i + 10).toString(36) + "'>" + (i + 10).toString(36).toUpperCase() + "</button>");
         document.getElementById('class-' + (i + 10).toString(36)).addEventListener('click', () => addExample(i));
     }
 
@@ -48,8 +59,6 @@ async function app() {
 
             const classes = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
             document.getElementById('console').innerText = `${classes[result.label]}`;
-
-            // probability: ${result.confidences[result.label]}
 
             // Dispose the tensor to release the memory.
             img.dispose();
