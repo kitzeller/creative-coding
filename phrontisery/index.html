@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div style="position: fixed; height: 90vh; width: 92vw; margin: 50px; display: flex; justify-content: center; align-items: center; border: 3px solid black">
+    <div style="display: flex; flex-direction: column; text-align: center">
+        <h1 id="word"></h1>
+        <h2 id="definition"></h2>
+    </div>
+</div>
+
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script>
+    $.getJSON("words.json", function(json) {
+        console.log(json); // this will show the info it in firebug console
+
+        let num = Math.floor((Math.random() * json.length));
+        let wordObj = json[num];
+
+        $("#word").text(wordObj.word);
+        $("#definition").text(wordObj.definition);
+
+    });
+</script>
+
+</body>
+</html>
