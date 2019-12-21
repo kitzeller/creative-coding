@@ -3,14 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <style>
+        canvas {
+            position: absolute;
+            margin: 0;
+            top: 0;
+            left: 0;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.min.js"></script>
+
+    <script language="javascript" src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/addons/p5.sound.min.js"></script>
+    <script language="javascript" type="text/javascript" src="sketch.js"></script>
+    <script language="javascript" type="text/javascript" src="particle.js"></script>
 </head>
 <body>
 
 
-<div style="position: fixed; height: 90vh; width: 92vw; margin: 50px; display: flex; justify-content: center; align-items: center; border: 3px solid black">
+<div style="position: fixed; height: 90vh; width: 92vw; margin: 50px; display: flex; justify-content: center; align-items: center; border: 3px solid black; z-index: 2">
     <div style="display: flex; flex-direction: column; text-align: center">
-        <h1 id="word"></h1>
-        <h2 id="definition"></h2>
+        <p id="word" style="color: white; font-size: 96px"></p>
+        <p id="definition" style="color: white; font-size: 46px"></p>
     </div>
 </div>
 

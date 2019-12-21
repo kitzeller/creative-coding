@@ -9,6 +9,12 @@ A basic teachable asl interpreter using the Tensorflow.js KNN Classifier.
 https://kitzeller.github.io/creative-coding/asl-interpreter/
 
 
+### phrontisery
+
+For uncovering new obscure words. Data obainted from the [phrontisery](http://phrontistery.info/).
+
+https://kitzeller.github.io/creative-coding/phrontisery/
+
 ### theremin
 
 A cam-based theremin instrument.
