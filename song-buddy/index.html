@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        canvas {
+            position: absolute;
+            margin: 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        button {
+            position: absolute;
+            margin: 10px;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%,0);
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+<h1>Song Buddy</h1>
+<button onclick="start()">Start</button>
+<canvas height="768" width="1366" id="myCanvas"></canvas>
+</body>
+
+<script>
+    const audioContext = new window.AudioContext();
+    const analyser = audioContext.createAnalyser();
+    let canvas = document.getElementById("myCanvas");
+    let canvasContext = document.getElementById("myCanvas").getContext('2d');
+    canvasContext.fillStyle = 'firebrick';
+
+    navigator.getUserMedia(
+        {audio: true},
+        stream => audioContext.createMediaStreamSource(stream).connect(analyser),
+        err => console.log(err)
+    );
+
+    function start() {
+        window.requestAnimationFrame(start);
+        canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+
+        let dataArray = new Uint8Array(analyser.frequencyBinCount);
+        analyser.getByteFrequencyData(dataArray);
+
+        dataArray.forEach((item, i) => {
+            // canvasContext.fillRect(i, item, 1, 1);
+
+            canvasContext.fillRect(i * 4, 300 + 256 - item * 2, 3, 100);
+
+
+        });
+    }
+</script>
+</html>
