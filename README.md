@@ -15,6 +15,11 @@ For uncovering new obscure words. Data obainted from the [phrontisery](http://ph
 
 https://kitzeller.github.io/creative-coding/phrontisery/
 
-### theremin
+### theremin (WIP)
 
 A cam-based theremin instrument.
+
+
+### song-buddy (WIP)
+
+https://kitzeller.github.io/creative-coding/song-buddy/
