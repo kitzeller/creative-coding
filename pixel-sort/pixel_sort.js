@@ -3,6 +3,7 @@ var imageData;
 var the_i = 0;
 var the_j = 0;
 
+var SORT_BY = 0;
 var ORIGINAL_IMAGE;
 
 window.onload = function () {
@@ -42,6 +43,7 @@ var reset = function () {
 
 
 var selectionSort = function () {
+    SORT_BY = document.querySelector('input[name="sortby"]:checked').value;
 
     count_col = 0;
     count_row = 0;
@@ -53,7 +55,7 @@ var selectionSort = function () {
             min_id = j;
 
             for (k = min_id + 4; k < i + canvas.width * 4; k += 4) {
-                if (rgb2hsv(imageData.data[k], imageData.data[k + 1], imageData.data[k + 2])[0] < rgb2hsv(imageData.data[min_id], imageData.data[min_id + 1], imageData.data[min_id + 2])[0]) {
+                if (rgb2hsv(imageData.data[k], imageData.data[k + 1], imageData.data[k + 2])[SORT_BY] < rgb2hsv(imageData.data[min_id], imageData.data[min_id + 1], imageData.data[min_id + 2])[SORT_BY]) {
                     min_id = k;
                 }
             }
@@ -84,6 +86,7 @@ var selectionSort = function () {
 };
 
 var selectionSort_nBlocks = function () {
+    SORT_BY = document.querySelector('input[name="sortby"]:checked').value;
     n_block = document.getElementById("n_range").value;
     console.log(n_block);
     console.log(imageData.data.length);
@@ -93,7 +96,7 @@ var selectionSort_nBlocks = function () {
             min_id = j;
 
             for (k = min_id + 4; k < i + ((canvas.width/n_block)*4); k += 4) {
-                if (rgb2hsv(imageData.data[k], imageData.data[k + 1], imageData.data[k + 2])[0] < rgb2hsv(imageData.data[min_id], imageData.data[min_id + 1], imageData.data[min_id + 2])[0]) {
+                if (rgb2hsv(imageData.data[k], imageData.data[k + 1], imageData.data[k + 2])[SORT_BY] < rgb2hsv(imageData.data[min_id], imageData.data[min_id + 1], imageData.data[min_id + 2])[SORT_BY]) {
                     min_id = k;
                 }
             }
@@ -119,6 +122,7 @@ var selectionSort_nBlocks = function () {
 };
 
 var selectionSort_Vis = function () {
+    SORT_BY = document.querySelector('input[name="sortby"]:checked').value;
 
     if (the_i < imageData.data.length) {
         if (the_j < the_i + canvas.width * 4) {
@@ -126,7 +130,7 @@ var selectionSort_Vis = function () {
             min_id = the_j;
 
             for (k = min_id + 4; k < the_i + canvas.width * 4; k += 4) {
-                if (rgb2hsv(imageData.data[k], imageData.data[k + 1], imageData.data[k + 2])[0] < rgb2hsv(imageData.data[min_id], imageData.data[min_id + 1], imageData.data[min_id + 2])[0]) {
+                if (rgb2hsv(imageData.data[k], imageData.data[k + 1], imageData.data[k + 2])[SORT_BY] < rgb2hsv(imageData.data[min_id], imageData.data[min_id + 1], imageData.data[min_id + 2])[SORT_BY]) {
                     min_id = k;
                 }
             }
