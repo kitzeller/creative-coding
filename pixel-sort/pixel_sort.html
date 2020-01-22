@@ -1,0 +1,42 @@
+<!doctype HTML>
+<html>
+<head>
+    <title>Pixel Sorting</title>
+    <script src="pixel_sort.js"></script>
+
+
+    <style>
+        h1 {
+            font-family: monospace;
+        }
+
+        canvas {
+            height: 500px;
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+<div style="text-align: center">
+    <h1>Pixel Sorting</h1>
+</div>
+
+<h2>Selection Sort</h2>
+<button onclick="reset()">Reset</button>
+<button onclick="selectionSort()">Selection Sort</button>
+<input id="n_range" type="text" placeholder="5">
+<button onclick="selectionSort_nBlocks()">Selection Sort nBlocks</button>
+<button onclick="selectionSort_Vis()">Selection Sort Vis</button>
+
+<h2>Quick Sort</h2>
+<h2>Counting Sort</h2>
+<h2>Merge Sort</h2>
+
+<br>
+
+
+<div style="text-align: center">
+    <canvas id="canvas"></canvas>
+</div>
+</body>
+</html>
